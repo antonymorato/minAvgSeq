@@ -5,24 +5,19 @@ public class MinAvg {
     /**
      * @param array input sequence of integers
      * @param k min length of sequence
+     * @return
      */
-    public static void findMinAvgSequence(int [] array,int k){
+    public static int[] findMinAvgSequence(int [] array, int k){
             int size=array.length;
 
             if (size < k)
-                return;
+                return new int[]{};
 
             int res_index = 0;
 
             int curr_sum = 0;
             for (int i = 0; i < k; i++) {
-                if (i<array.length-1)
-                {
-
                     curr_sum += array[i];
-                    if ((curr_sum+array[i+1])/((double)(k+1))<curr_sum/((double)k))
-                        k++;
-                }
             }
 
             int min_sum = curr_sum;
@@ -44,6 +39,11 @@ public class MinAvg {
                     res_index + ", " + (res_index + k - 1) +
                     "] has minimum average");
 
+            int []resArray=new int[k];
+        for (int i = res_index,j=0; i <=res_index+k-1; i++,j++) {
+            resArray[j]=array[i];
+        }
+            return resArray;
     }
 
 
