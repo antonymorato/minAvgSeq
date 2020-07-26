@@ -10,6 +10,10 @@ public class MinAvg {
     public static int[] findMinAvgSequence(int [] array, int k){
             int size=array.length;
 
+            //making min size of sequence 2
+            if (k<2)
+                k=2;
+
             if (size < k)
                 return new int[]{};
 
